@@ -6,7 +6,6 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-/** @package App\View\Components */
 class ArtistsToFollow extends Component
 {
     public array $artists;
@@ -23,7 +22,6 @@ class ArtistsToFollow extends Component
         ];
     }
 
-    /** @return View|Closure|string  */
     public function render(): View|Closure|string
     {
         // Laravel pasará $this->artists automáticamente con el mismo nombre a la vista!
