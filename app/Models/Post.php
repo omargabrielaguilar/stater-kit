@@ -13,6 +13,7 @@ class Post extends Model
     use HasFactory;
 
     protected $fillable = [
+
         'profile_id',
         'parent_id',
         'content',
@@ -31,5 +32,10 @@ class Post extends Model
     public function replies(): HasMany
     {
         return $this->hasMany(Post::class, 'parent_id');
+    }
+
+    public function likes(): HasMany
+    {
+        return $this->hasMany(Like::class);
     }
 }

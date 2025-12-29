@@ -16,7 +16,7 @@ Route::get('/feed', function () {
                 'avatar' => '/images/amanda.png',
             ],
             'posted_ago' => '3 hours ago',
-            'content' => <<<HTML
+            'content' => <<<'HTML'
                 <p>
                 I made this! <a href="#">#myartwork</a> <a href="#">#eyes-care</a>
                 </p>
@@ -60,7 +60,7 @@ Route::get('/profile', function () {
                 'avatar' => '/images/adrian.png',
             ],
             'posted_ago' => '3 hours ago',
-            'content' => <<<HTML
+            'content' => <<<'HTML'
                 <p>
                 I made this! <a href="#">#myartwork</a> <a href="#">#eyes-care</a>
                 </p>
@@ -90,5 +90,6 @@ Route::get('/profile', function () {
     ];
 
     $feedItems = json_decode(json_encode($feedItems));
+
     return view('profile', compact('feedItems'));
 });

@@ -28,7 +28,7 @@ class PostFactory extends Factory
     {
         return $this->state([
             'parent_id' => $parentPost->id,
-            'content' => $this->faker->realText(150)
+            'content' => $this->faker->realText(150),
         ]);
     }
 }
