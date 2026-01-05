@@ -25,4 +25,27 @@ class Follow extends Model
     {
         return $this->belongsTo(Profile::class, 'following_profile_id');
     }
+
+    public static function createFollow(Profile $follower, Profile $following): self
+    {
+        if ($follower->id === $following->id) {
+            throw new \InvalidArgumentException('You cannot follow yourself.');
+        }
+
+        return static::firstOrCreate([
+            'follower_profile_id' => $follower->id,
+            'following_profile_id' => $following->id,
+        ]);
+    }
+
+    public static function removeFollow(Profile $follower, Profile $following): bool
+    {
+        if ($follower->id === $following->id) {
+            throw new \InvalidArgumentException('You cannot unfollow yourself.');
+        }
+
+        return static::where('follower_profile_id', $follower->id)
+            ->where('following_profile_id', $following->id)
+            ->delete() > 0;
+    }
 }
