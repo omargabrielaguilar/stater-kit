@@ -33,7 +33,6 @@ test('profile cannot like the same post twice', function () {
         ->and($post->likes)->toHaveCount(1);
 });
 
-
 test('can remove a like ', function () {
     $profile = Profile::factory()->create();
     $post = Post::factory()->create();

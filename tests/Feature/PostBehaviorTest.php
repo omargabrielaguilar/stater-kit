@@ -56,7 +56,6 @@ test('can have many reposts', function () {
         ->and($original->reposts->contains($reposts->first()))->toBeTrue();
 });
 
-
 test('create quote reposts', function () {
     $content = 'quote content';
     $original = Post::factory()->create();
@@ -69,7 +68,6 @@ test('create quote reposts', function () {
         ->and($repost->content)->toBe($content);
 });
 
-
 test('prevent duplicate reposts', function () {
     $original = Post::factory()->create();
     $profile = Profile::factory()->create();
@@ -79,7 +77,6 @@ test('prevent duplicate reposts', function () {
 
     expect($r1->id)->toBe($r2->id);
 });
-
 
 test('remove a repost', function () {
     $original = Post::factory()->create();
